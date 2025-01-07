@@ -29,7 +29,7 @@ Target Variable: diagnosis (M = Malignant, B = Benign)
 
 Features: 30 numeric attributes derived from the images.
 
-The dataset is included in the data/ directory as breast_cancer.csv.
+The dataset is included in the data/ directory as data.csv.
 
 
 
