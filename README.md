@@ -38,17 +38,21 @@ To set up the project, follow these steps:
 
 Clone the repository:
 ``` 
-git clone https://github.com/your-username/breast-cancer-ml-project.git
+git clone https://github.com/your-username/BreastCancer.git
 cd breast-cancer-ml-project
 ```
 Create a virtual environment
 ```
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  
 ```
 Install the required dependencies:
 ```
 pip install -r requirements.txt
+```
+Run streamlit
+```
+streamlit run app.py
 ```
 
 ## Model Training and Evaluation
@@ -57,26 +61,26 @@ The following machine learning models were trained and evaluated:
 
 1. Logistic Regression
 
-2. Support Vector Machine (SVM)
+2. Logistic Regression + PCA
 
-3. Random Forest Classifier
+3. Random Forest 
 
-4. Gradient Boosting Classifier
+4. Random Forest + PCA
 
-5. K-Nearest Neighbors (KNN)
+5. Random Forest + RFE
 
 # Evaluation Metrics
 The models were evaluated using the following metrics:
 
 1. Accuracy
 
-2. Precision
+2. Sensitivity
 
-3. Recall
+3. Specificity
 
-4. F1-Score
+4. Precision
 
-5. ROC-AUC Score
+5. F-measure
 
 ## Results
 The evaluation results are stored in the results/ directory, including:
@@ -86,3 +90,66 @@ The evaluation results are stored in the results/ directory, including:
 2. ROC curves
 
 3. Feature importance plots
+
+## Deployment on AWS EC2 with Docker
+This section provides step-by-step instructions for deploying the machine learning model on an AWS EC2 instance using Docker.
+
+Prerequisites
+AWS Account: You need an AWS account to create an EC2 instance.
+
+Docker: Install Docker on your local machine and the EC2 instance.
+
+AWS CLI: Install and configure the AWS CLI on your local machine.
+
+Steps
+1. Create an EC2 Instance
+Log in to the AWS Management Console.
+
+Navigate to EC2 and click Launch Instance.
+
+Choose an Amazon Machine Image (AMI) with Docker pre-installed (e.g., Amazon Linux 2).
+
+Select an instance type (e.g., t2.micro for free tier).
+
+Configure security groups to allow inbound traffic on port 5000 (for the Flask app).
+
+Launch the instance and download the key pair (.pem file).
+
+2. Connect to the EC2 Instance
+Use SSH to connect to your EC2 instance:
+
+bash
+Copy
+ssh -i /path/to/your-key.pem ec2-user@<public-ip-address>
+3. Install Docker on EC2 (if not pre-installed)
+bash
+Copy
+sudo yum update -y
+sudo yum install docker -y
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+4. Build and Run the Docker Container
+Copy the project files to the EC2 instance using scp:
+
+bash
+Copy
+scp -i /path/to/your-key.pem -r /path/to/breast-cancer-ml-project ec2-user@<public-ip-address>:~/
+SSH into the EC2 instance and navigate to the project directory:
+
+bash
+Copy
+cd breast-cancer-ml-project
+Build the Docker image:
+
+bash
+Copy
+docker build -t breast-cancer-ml .
+Run the Docker container:
+
+bash
+Copy
+docker run -d -p 5000:5000 breast-cancer-ml
+5. Access the Deployed Model
+The Flask app will be running on port 5000.
+
+Open a browser and navigate to http://<public-ip-address>:5000 to access the application.
