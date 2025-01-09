@@ -1,19 +1,26 @@
-.st-emotion-cache-b95f0i eiemyj4{
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: #f4f4f4;
-}
-
-.diagnosis{
-    color: white;
-    padding: 0.2em 0.5em;
-    border-radius: 0.5em;
-}
-
-.diagnosis.benign{
+/* Custom CSS for Streamlit App */
+.stButton>button {
     background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 
-.diagnosis.malignant{
-    background-color: #F44336;
+.stSuccess {
+    color: green;
+    font-weight: bold;
+}
+
+.stError {
+    color: red;
+    font-weight: bold;
+}
+
+.stMarkdown h1 {
+    color: #2E86C1;
+}
+
+.stMarkdown h2 {
+    color: #3498DB;
 }
