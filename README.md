@@ -134,7 +134,7 @@ Steps
 
 ![AWS EC2](ec2.png)
 
-3. Connect to the EC2 Instance
+2. Connect to the EC2 Instance
 Use SSH to connect to your EC2 instance:
 ```
 ssh -i /path/to/your-key.pem ec2-user@<public-ip-address>
