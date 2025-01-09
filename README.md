@@ -93,7 +93,7 @@ The models were evaluated using the following metrics:
 
 ---
 
-### 📈 Results
+## 📈 Results
 The evaluation results are as follows:
 
 - **Logistic Regression** is the **best-performing model** for this dataset, achieving high **accuracy**, **sensitivity**, **specificity**, **precision**, and **F-measure**. 🏆
@@ -132,7 +132,9 @@ Steps
    
    Launch the instance and download the key pair (.pem file).
 
-2. Connect to the EC2 Instance
+![AWS EC2](ec2.png)
+
+3. Connect to the EC2 Instance
 Use SSH to connect to your EC2 instance:
 ```
 ssh -i /path/to/your-key.pem ec2-user@<public-ip-address>
