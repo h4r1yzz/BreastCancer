@@ -3,6 +3,10 @@
 
 This project focuses on building a **machine learning model** to predict whether a breast tumor is **malignant (cancerous)** or **benign (non-cancerous)** based on features extracted from digitized images of fine needle aspirates (FNA) of breast masses. The dataset used in this project is the **Breast Cancer Wisconsin (Diagnostic) Dataset**, which is publicly available from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)).
 
+![radar](radar.png)
+
+![Graph](3dgraph.png)
+
 The goal of this project is to:
 
 1. **Preprocess and explore the dataset**.
@@ -64,62 +68,69 @@ To set up the project, follow these steps:
   ```bash
   streamlit run app.py
   ```
-  
 
-## Model Training and Evaluation
-Models Tested
+## 🚀 Model Training and Evaluation
+
+### 🧠 Models Tested
 The following machine learning models were trained and evaluated:
 
-1. Logistic Regression
+1. **Logistic Regression** 🧮
+2. **Logistic Regression + PCA** 📉
+3. **Random Forest** 🌳
+4. **Random Forest + PCA** 🌳📉
+5. **Random Forest + RFE** 🌳🔍
 
-2. Logistic Regression + PCA
+---
 
-3. Random Forest 
-
-4. Random Forest + PCA
-
-5. Random Forest + RFE
-
-# Evaluation Metrics
+### 📊 Evaluation Metrics
 The models were evaluated using the following metrics:
 
-1. Accuracy
+1. **Accuracy** 🎯
+2. **Sensitivity (Recall)** 🕵️‍♂️
+3. **Specificity** 🛡️
+4. **Precision** 📏
+5. **F-measure (F1 Score)** ⚖️
 
-2. Sensitivity
+---
 
-3. Specificity
+### 📈 Results
+The evaluation results are as follows:
 
-4. Precision
+- **Logistic Regression** is the **best-performing model** for this dataset, achieving high **accuracy**, **sensitivity**, **specificity**, **precision**, and **F-measure**. 🏆
+- **Logistic Regression with PCA** performs slightly worse, indicating that PCA may not be necessary for this dataset. 📉
+- **Random Forest** underperforms and requires further tuning or investigation. 🔧
 
-5. F-measure
+![Results](result.png)
 
-## Results
-The evaluation results are stored in the results/ directory, including:
-![Results](results.png)
+---
 
-## Deployment on AWS EC2 with Docker
-This section provides step-by-step instructions for deploying the machine learning model on an AWS EC2 instance using Docker.
+## 🛠️ Deployment on AWS EC2 with Docker
+This section provides step-by-step instructions for deploying the machine learning model on an **AWS EC2 instance** using **Docker**.
 
-Prerequisites
-AWS Account: You need an AWS account to create an EC2 instance.
+---
 
-Docker: Install Docker on your local machine and the EC2 instance.
+### 📋 Prerequisites
+Before starting, ensure you have the following:
 
-AWS CLI: Install and configure the AWS CLI on your local machine.
+1. **AWS Account**: You need an AWS account to create an EC2 instance. 🌐
+2. **Docker**: Install Docker on your local machine and the EC2 instance. 🐳
+3. **AWS CLI**: Install and configure the AWS CLI on your local machine. 🔧
+
+---
 
 Steps
 1. Create an EC2 Instance
-Log in to the AWS Management Console.
-
-Navigate to EC2 and click Launch Instance.
-
-Choose an Amazon Machine Image (AMI) with Docker pre-installed (e.g., Amazon Linux 2).
-
-Select an instance type (e.g., t2.micro for free tier).
-
-Configure security groups to allow inbound traffic on port 5000 (for the Flask app).
-
-Launch the instance and download the key pair (.pem file).
+   Log in to the AWS Management Console.
+   
+   Navigate to EC2 and click Launch Instance.
+   
+   Choose an Amazon Machine Image (AMI) with Docker pre-installed (e.g., Amazon Linux 2).
+   
+   Select an instance type (e.g., t2.micro for free tier).
+   
+   Configure security groups to allow inbound traffic on port 5000 (for the Flask app).
+   
+   Launch the instance and download the key pair (.pem file).
 
 2. Connect to the EC2 Instance
 Use SSH to connect to your EC2 instance:
@@ -151,7 +162,9 @@ Run the Docker container:
 docker run -d -p 5000:5000 breast-cancer-ml
 ```
 5. Access the Deployed Model
-The Flask app will be running on port 8501.
+The Streamlit app will be running on port 8501.
 
-Open a browser and navigate to http://<public-ip-address>:8501 to access the application.
+Open a browser and navigate to locate to the public ip address
+
+![AWS Console](awsCli.png)
 
