@@ -1,8 +1,4 @@
 # Breast Cancer Prediction Project 🎗️
-
-![Breast Cancer Awareness](https://via.placeholder.com/800x400.png?text=Breast+Cancer+Awareness+Banner)  
-*Image: Breast Cancer Awareness Banner*
-
 ## Overview 🔍
 
 This project focuses on building a **machine learning model** to predict whether a breast tumor is **malignant (cancerous)** or **benign (non-cancerous)** based on features extracted from digitized images of fine needle aspirates (FNA) of breast masses. The dataset used in this project is the **Breast Cancer Wisconsin (Diagnostic) Dataset**, which is publicly available from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)).
@@ -24,9 +20,6 @@ This repository contains the code, datasets, and documentation necessary to repl
 3. [Model Training and Evaluation](#model-training-and-evaluation)
 4. [Results](#results)
 5. [Deployment on AWS EC2 with Docker](#deployment-on-aws-ec2-with-docker)
-6. [License](#license)
-7. [Acknowledgements](#acknowledgements)
-8. [Contact](#contact)
 
 ---
 
@@ -102,12 +95,7 @@ The models were evaluated using the following metrics:
 
 ## Results
 The evaluation results are stored in the results/ directory, including:
-
-1. Confusion matrices
-
-2. ROC curves
-
-3. Feature importance plots
+![Results](results.png)
 
 ## Deployment on AWS EC2 with Docker
 This section provides step-by-step instructions for deploying the machine learning model on an AWS EC2 instance using Docker.
@@ -166,3 +154,4 @@ docker run -d -p 5000:5000 breast-cancer-ml
 The Flask app will be running on port 8501.
 
 Open a browser and navigate to http://<public-ip-address>:8501 to access the application.
+
